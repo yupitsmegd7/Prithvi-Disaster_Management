@@ -1,0 +1,97 @@
+{
+  "created_at": "2026-10-02T10:29:31.848719+00:00",
+  "summary": "Two experimental random-forest models trained on daily reanalysis for Bhubaneswar, Kolkata and Jaipur. These predict next-day rainfall and a dry following week, not disaster occurrence.",
+  "target_issue_time": "End of each UTC day; reanalysis is retrospective and not a real-time observation feed.",
+  "features": [
+    "rain",
+    "rain_3d",
+    "rain_7d",
+    "rain_30d",
+    "temperature",
+    "wind",
+    "month_sin",
+    "month_cos",
+    "latitude",
+    "longitude"
+  ],
+  "training_rows": 25095,
+  "validation_rows": 1074,
+  "test_rows": 2172,
+  "train_period": [
+    "2000",
+    "2022-12-24"
+  ],
+  "validation_period": [
+    "2023-01-01",
+    "2023-12-24"
+  ],
+  "test_period": [
+    "2024-01-01",
+    "2025-12-24"
+  ],
+  "rain": {
+    "test_mae": 3.4248719919593067,
+    "test_rmse": 6.8684160428446415,
+    "baseline_mae": 3.739226519337016,
+    "baseline_name": "Persistence: tomorrow rain equals today rain",
+    "validation_mae": 3.340767206754994
+  },
+  "dry_week": {
+    "target": "Sum of next 7 days rainfall <7 mm; NOT a drought label",
+    "threshold": 0.25000000000000006,
+    "validation": {
+      "pr_auc": 0.8443338038429326,
+      "brier": 0.14204795887864888,
+      "precision": 0.6911957950065704,
+      "recall": 0.9758812615955473,
+      "confusion_matrix": [
+        [
+          300,
+          235
+        ],
+        [
+          13,
+          526
+        ]
+      ]
+    },
+    "test": {
+      "pr_auc": 0.9084301848822436,
+      "brier": 0.11205449623016102,
+      "precision": 0.7230443974630021,
+      "recall": 0.9661016949152542,
+      "confusion_matrix": [
+        [
+          717,
+          393
+        ],
+        [
+          36,
+          1026
+        ]
+      ]
+    },
+    "climatology_brier": 0.25659538843150614
+  },
+  "rain_mae_by_city": {
+    "bhubaneswar": 4.042326227472052,
+    "jaipur": 2.0123447080188273,
+    "kolkata": 4.21994504038704
+  },
+  "versions": {
+    "python": "3.12.14",
+    "sklearn": "1.8.0"
+  },
+  "data_sha256": {
+    "bhubaneswar.csv": "6a27ede8e3a2804abf466608ffdf1f1ab9530756ca9aa907a73be48793ec757a",
+    "jaipur.csv": "1be1b620fa8e960e55e3cfeeceb1fa44767291d4210f09b20ea4dff20c6d27cd",
+    "kolkata.csv": "f3fb467000fff47eb3b970d6be089d5c75fdb2655a5b7de78fa5e2273e863435"
+  },
+  "limitations": [
+    "Retrospective reanalysis, not issue-time forecast verification.",
+    "No held-out geographical region; no spatial generalisation claim.",
+    "No flood extent, damage, drought declaration, rain chemistry or cyclone landfall labels.",
+    "Model probabilities are not calibrated disaster probabilities.",
+    "Not connected to public alert decisions."
+  ]
+}

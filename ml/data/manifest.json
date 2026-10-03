@@ -1,0 +1,26 @@
+[
+  {
+    "city": "bhubaneswar",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=20.2961&longitude=85.8245&start_date=2000-01-01&end_date=2025-12-31&daily=precipitation_sum%2Ctemperature_2m_mean%2Cwind_speed_10m_max&timezone=UTC",
+    "retrieved_at": "2026-10-02T10:29:24.541086+00:00",
+    "rows": 9497,
+    "missing": 0,
+    "path": "bhubaneswar.csv"
+  },
+  {
+    "city": "kolkata",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=22.5726&longitude=88.3639&start_date=2000-01-01&end_date=2025-12-31&daily=precipitation_sum%2Ctemperature_2m_mean%2Cwind_speed_10m_max&timezone=UTC",
+    "retrieved_at": "2026-10-02T10:29:26.310928+00:00",
+    "rows": 9497,
+    "missing": 0,
+    "path": "kolkata.csv"
+  },
+  {
+    "city": "jaipur",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=26.9124&longitude=75.7873&start_date=2000-01-01&end_date=2025-12-31&daily=precipitation_sum%2Ctemperature_2m_mean%2Cwind_speed_10m_max&timezone=UTC",
+    "retrieved_at": "2026-10-02T10:29:28.130288+00:00",
+    "rows": 9497,
+    "missing": 0,
+    "path": "jaipur.csv"
+  }
+]
